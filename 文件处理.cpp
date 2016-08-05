@@ -1,4 +1,4 @@
-// ÎÄ¼ş´¦Àí°¡°¡.cpp : Defines the entry point for the console application.
+// æ–‡ä»¶å¤„ç†.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
@@ -31,38 +31,38 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-void filePutc()//Ğ´Èë×Ö·ûµ½ÎÄ¼ş
+void filePutc()//å†™å…¥å­—ç¬¦åˆ°æ–‡ä»¶
 {
-  FILE* pF;//Ö¸ÏòËù²Ù×÷µÄÎÄ¼ş
+  FILE* pF;//æŒ‡å‘æ‰€æ“ä½œçš„æ–‡ä»¶
   pF=fopen("data.txt","w");
    if(pF==NULL)
    {
-     puts("´ò¿ªÎÄ¼şÊ§°Ü");
+     puts("æ‰“å¼€æ–‡ä»¶å¤±è´¥");
 		 return;
    }
 
    for(int i='A';i<='F';i++)
    {
-     fputc(i,pF);//ÏòÎÄ¼şÖĞĞ´Èë×Ö·û
+     fputc(i,pF);//å‘æ–‡ä»¶ä¸­å†™å…¥å­—ç¬¦
    }
    fclose(pF);
 }
 
 
-void fileGetc()//¶ÁÈ¡×Ö·û´ÓÎÄ¼şÖĞ
+void fileGetc()//è¯»å–å­—ç¬¦ä»æ–‡ä»¶ä¸­
 {  
   FILE* pF;
   pF=fopen("data.txt","r");
  if(pF==NULL)
  {
-  puts("´ò¿ªÊ§°Ü");
+  puts("æ‰“å¼€å¤±è´¥");
   return;
  }
- char c=fgetc(pF);//Ò»¸öÒ»¸ö¶ÁÈ¡
- while(c!=EOF)//ÎÄ¼ş½áÎ²±êÊ¶
+ char c=fgetc(pF);//ä¸€ä¸ªä¸€ä¸ªè¯»å–
+ while(c!=EOF)//æ–‡ä»¶ç»“å°¾æ ‡è¯†
  {
-   printf("%c",c);//¶ÁÈ¡µ±Ç°×Ö·û
-   c=fgetc(pF);//¶ÁÈ¡ÏÂÒ»¸ö×Ö·û
+   printf("%c",c);//è¯»å–å½“å‰å­—ç¬¦
+   c=fgetc(pF);//è¯»å–ä¸‹ä¸€ä¸ªå­—ç¬¦
  }  
  puts(" ");
 fclose(pF);
@@ -74,10 +74,10 @@ void filePuts()
 	pF=fopen("data.txt","w");
 	if(pF==NULL)
 	{
-      puts("´ò¿ªÊ§°Ü");
+      puts("æ‰“å¼€å¤±è´¥");
 	  return;
 	}
-  fputs("12345\n",pF);//´òÓ¡×Ö·û´®µ½ÎÄ¼şÖĞ
+  fputs("12345\n",pF);//æ‰“å°å­—ç¬¦ä¸²åˆ°æ–‡ä»¶ä¸­
   fputs("ABCDE\n",pF);
   fclose(pF);
 }
@@ -88,33 +88,33 @@ void fileGets()
  pF=fopen("data.txt","r");
  if(pF==NULL)
  {
-   puts("´ò¿ªÊ§°Ü");
+   puts("æ‰“å¼€å¤±è´¥");
    return;
  }
  char str[100];
- //°´ĞĞÀ´¶ÁÈ¡×Ö·û
+ //æŒ‰è¡Œæ¥è¯»å–å­—ç¬¦
  fgets(str,12,pF);
  printf("%s",str);
 
  fgets(str,12,pF);
- printf("%s",str);//¶ÁÈ¡Á½ĞĞ
+ printf("%s",str);//è¯»å–ä¸¤è¡Œ
 
  fclose(pF);
 
 }
 
 
-void fileWrite()//ÒÔÈÎÒâ´óĞ¡µÄÄÚÈİĞ´ÈëÎÄ¼şÖĞ
+void fileWrite()//ä»¥ä»»æ„å¤§å°çš„å†…å®¹å†™å…¥æ–‡ä»¶ä¸­
 {
  FILE* pF;
  pF=fopen("data.txt","w");
   if(pF==NULL)
   {
-    puts("´ò¿ªÊ§°Ü");
+    puts("æ‰“å¼€å¤±è´¥");
 	return;
   }
    char str[100]="12345678abcdefg";
-   //Ğ´ÈëÈÎÒâ¸ö×Ö·û¶ş½øÖÆÊı¾İµ½ÎÄ¼şÖĞ£¬voidÈÎºÎÀàĞÍ¶¼¿ÉÒÔĞ´Èë
+   //å†™å…¥ä»»æ„ä¸ªå­—ç¬¦äºŒè¿›åˆ¶æ•°æ®åˆ°æ–‡ä»¶ä¸­ï¼Œvoidä»»ä½•ç±»å‹éƒ½å¯ä»¥å†™å…¥
   fwrite((void*)str,sizeof(char),10,pF);
   fclose(pF);
 }
@@ -125,20 +125,20 @@ FILE* pF;
  pF=fopen("data.txt","r");
   if(pF==NULL)
   {
-    puts("´ò¿ªÊ§°Ü");
+    puts("æ‰“å¼€å¤±è´¥");
 	return;
   }
   char str[100];
   int r=fread(str,sizeof(char),10,pF);
   str[10]='\0';
  
-  if(r!=0)//Èç¹û·µ»ØÖµÎª0£¬¶ÁÈ¡Ê§°Ü
+  if(r!=0)//å¦‚æœè¿”å›å€¼ä¸º0ï¼Œè¯»å–å¤±è´¥
   {
-    printf("¶ÁÈ¡µÄ×Ö½ÚÊıÎª%d\n",r);
+    printf("è¯»å–çš„å­—èŠ‚æ•°ä¸º%d\n",r);
 	printf("%s",str);
   }
   fclose(pF);
-  puts(" ");//»òprintf("\n");
+  puts(" ");//æˆ–printf("\n");
 }
 
 
